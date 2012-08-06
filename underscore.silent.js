@@ -44,5 +44,24 @@ _.mixin({
     return str.replace(/\%\{(\w+)\}/g, function(match, key) {
       return map[key];
     });
+  },
+
+  /**
+   * Look for a value in an object.
+   *
+   * Inspired by php's in_array() funciton.
+   *
+   * @var object haystack
+   *   the object to be searched into
+   * @var object needle
+   *   the value to be searched
+   */
+  in_object : function (haystack, needle) {
+    for (key in haystack) {
+      if (needle === haystack[key]) {
+        return true;
+      }
+    }
+    return false;
   }
 });
