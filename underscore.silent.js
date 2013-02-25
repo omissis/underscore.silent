@@ -50,6 +50,30 @@
     },
 
     /**
+     * Calculate the percentage of an amount on a total
+     *
+     * @var Number amount
+     * @var Number total
+     * @var Number scale
+     * @var Number decimalDigits
+     *
+     * @return Number
+     */
+    percent : function (amount, total, scale, decimalDigits) {
+      if (total === 0) {
+        return 0;
+      }
+
+      amount = amount || 0;
+      scale = scale || 1;
+      decimalDigits = decimalDigits || 0;
+
+      var precisionMult = Math.pow(10, decimalDigits);
+
+      return Math.round(precisionMult * scale * (amount / total)) / precisionMult;
+    },
+
+    /**
      * Rounds a number to the needed digit
      *
      * @var Number number
@@ -58,9 +82,28 @@
      * @return Number
      */
     round : function (number, digits) {
-        var multiple = Math.pow(10, digits);
+      var multiple = Math.pow(10, digits);
 
-        return Math.round(number * multiple) / multiple;
+      return Math.round(number * multiple) / multiple;
+    },
+
+    /**
+     * transform a number from rgb to hex
+     *
+     * @var String rgb
+     */
+    rgbToHex : function(rgb) {
+      if (!rgb) {
+        return '#ffffff'; //default color
+      }
+
+      var hex_rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+
+      function hex(x) {
+        return ("0" + parseInt(x, 10).toString(16)).slice(-2);
+      }
+
+      return hex_rgb ? ("#" + hex(hex_rgb[1]) + hex(hex_rgb[2]) + hex(hex_rgb[3])) : rgb;
     },
 
     /**
@@ -72,6 +115,17 @@
      */
     isVoid : function (value) {
       return _.isNull(value) || _.isUndefined(value);
+    },
+
+    /**
+     * Returns an URL given the path
+     *
+     * @var string path the relative path
+     *
+     * @return string the absolute path
+     */
+    url : function (path) {
+      return location.protocol + '//' + location.host + "/" + path.replace(/\/{1,}$/, '');
     }
   });
 }(_));
