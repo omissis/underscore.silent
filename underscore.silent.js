@@ -31,6 +31,28 @@
     },
 
     /**
+     * Calculate sum of an array
+     *
+     * @var Array obj
+     *   array of which you want to calculate the sum
+     * @var function iterator
+     *   generates the criterion by which the value is ranked.
+     *
+     * @return Number
+     */
+    sum : function (obj, iterator) {
+      if (!iterator && _.isEmpty(obj)) return -Infinity;
+
+      var total = 0;
+
+      for (var i = 0, len = obj.length; i < len; ++i) {
+        total += iterator ? iterator(obj[i]) : obj[i];
+      }
+
+      return total;
+    },
+
+    /**
      * Replace tokens in a string with the corresponding values in the given map.
      *
      * Tokens in the string must be in the %{token} form.

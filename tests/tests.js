@@ -11,6 +11,12 @@ test("ns multiple level", function () {
   deepEqual(Foo.Bar, {Baz : {}});
 });
 
+test("sum", function () {
+  equal(_.sum([1, 2, 3]), 6);
+  equal(_.sum([1, 2, -3]), 0);
+  equal(_.sum([{ value : 1}, { value : 2 }, { value : 3 }], function (item) { return item.value; }), 6);
+});
+
 test("replace", function () {
   equal(_.replace('foo %{token} baz', {token : "bar"}), "foo bar baz");
   equal(_.replace('foo baz',          {token : "bar"}), "foo baz");
