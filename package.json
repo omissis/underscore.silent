@@ -1,0 +1,27 @@
+{
+  "name": "underscore.silent",
+  "preferGlobal": false,
+  "author": "Claudio Beatrice",
+  "description": "Underscore.js mixin containing some utility functions.",
+  "contributors": [
+    { "name": "Claudio Beatrice" }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:omissis/underscore.silent.git"
+  },
+  "keywords": [
+    "javascript",
+    "underscore"
+  ],
+  "dependencies" : {
+    "underscore" : "1.5.*"
+  },
+  "devDependencies" : {
+    "qunit" : "0.5.*"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.10"
+  }
+}
