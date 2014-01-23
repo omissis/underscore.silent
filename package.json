@@ -1,5 +1,6 @@
 {
   "name": "underscore.silent",
+  "version": "0.2.0",
   "preferGlobal": false,
   "author": "Claudio Beatrice",
   "description": "Underscore.js mixin containing some utility functions.",

@@ -2,7 +2,7 @@
 //    (c) 2011-2014 Claudio Beatrice <claudi0 d0t beatric3 at gmail d0t c0m>.
 //    Underscore.silent is freely distributable under the terms of the MIT license.
 //    Documentation: https://github.com/omissis/underscore.silent
-//    Version '0.1.4'
+//    Version '0.2.0'
 
 (function (_) {
     "use strict";
